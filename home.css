@@ -1,6 +1,7 @@
 *{
     margin: 0;
     padding: 0;
+    border: none;
     box-sizing: border-box;
     font-family: 'Inter', sans-serif;
 }
@@ -128,6 +129,7 @@ form{
 
 ul{
     list-style: none;
+    
 }
 
 .menuElement{
@@ -142,13 +144,60 @@ ul{
     margin-bottom: 12px;
 
 }
+.menuElement:hover{
+    border: #121212 1px solid;
+}
+
 .text{
     display: flex;
     flex-direction: column;
+    gap: 2px;
+    margin-left: 12px;
+    color: #121212;
 }
 
-/*
-box-shadow: inset 0px 5px 12px red, друга тінь 
-*/
+.memuCoin {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+}
 
+.ollPrice{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
 
+.menuButton{
+    margin-left: auto;
+    margin-top: auto;
+    width: 59px;
+    height: 40px;
+    background-color: #E0E0E0;
+    color: #121212;
+    border-radius: 12px; 
+    font-size: 14px;
+    font-weight: medium;   
+}
+
+.menuButton:hover{
+    background-color: #A47D9A;
+    color: white;
+}
+
+.firstText{
+    font-size: 16px;
+    font-weight: medium;
+
+}
+
+.secondText {
+    font-size: 16px;
+    font-weight: 400;
+    color: #61646B;
+}
+
+#downButton{
+    position: absolute;
+    cursor: pointer;
+}
