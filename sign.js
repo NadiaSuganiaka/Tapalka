@@ -17,7 +17,13 @@ function updateFormData(event) {
 
 function logFormData(event) {
     event.preventDefault();
-    console.log(formData);
+    /*console.log(formData);
+    fetch("", {
+        method: "post",
+        headers:{
+            "content-tipe": ""
+        }
+    })*/
 }
 
 function handleShow () {   
