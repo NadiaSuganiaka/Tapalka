@@ -17,30 +17,17 @@ function updateFormData(event) {
 
 function logFormData(event) {
     event.preventDefault();
-    /*console.log(formData);
-    fetch("", {
-        method: "post",
-        headers:{
-            "content-tipe": ""
-        }
-    })*/
-}
-
-function handleShow () {   
-    if (showOn.style.opacity === "1") {
-        showOn.style.opacity = "0";
-        showOff.style.opacity = "1";
-    } else{
-        showOn.style.opacity = "1";
-        showOff.style.opacity = "0";
-    }   
 }
 
 function passwordType() {
     if(password.type === 'password'){
         password.type = 'text';
+        showOn.style.opacity = "1";
+        showOff.style.opacity = "0";
     } else{
         password.type = 'password';
+        showOn.style.opacity = "0";
+        showOff.style.opacity = "1";
     }
     
 }
@@ -50,7 +37,23 @@ password.addEventListener('input', updateFormData);
 
 signButton.addEventListener('click', logFormData);
 
-showOn.addEventListener('click', handleShow);
-showOff.addEventListener('click', handleShow);
 showOn.addEventListener('click', passwordType);
 showOff.addEventListener('click', passwordType);
+
+
+sendReq(endpoint, data){
+    fetch('http://localhost:3000/' + endpoint, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            email,
+            password
+        })
+    }).then(response => {
+        return response.json()
+    }).then(data => {
+        console.log(data)
+    })
+};

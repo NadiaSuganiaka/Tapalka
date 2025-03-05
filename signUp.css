@@ -132,9 +132,9 @@ label{
 }
 
 #showOn{
-    opacity: 1;
+    opacity: 0;
 }
 
 #showOff{
-    opacity: 0;
+    opacity: 1;
 }
