@@ -41,7 +41,7 @@ showOn.addEventListener('click', passwordType);
 showOff.addEventListener('click', passwordType);
 
 
-sendReq(endpoint, data){
+function sendReq(endpoint, data){
     fetch('http://localhost:3000/' + endpoint, {
         method: 'POST',
         headers: {
