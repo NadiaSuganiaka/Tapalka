@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <title>Bunny tap</title>
-    <link rel="stylesheet" href="signIn.css">
+    <link rel="stylesheet" href="sign.css">
 </head>
 <body>
     <img id="background" src="img/background.jpg">
@@ -21,19 +21,23 @@
     <form>
         <div>  
             <label>Email</label>
-            <input type = "email">
+            <input type = "email" name="email">
         </div>
         <div>  
             <label>Password</label>
             <div>
-                <input id="password" type = "password">
+                <input id="password" type = "password" name="password">
                 <img class="show" id="showOn" src="img/showOn.png">
                 <img class="show" id="showOff" src="img/showOff.png">
             </div>
         </div>
-        <button>Sign in</button>
+        <button id="signInButton">Sign in</button>
         <p class="acaunt">Don’t have account yet?<a href="signUp.html">Sign Up</a></p>
     </form>
+    <div id="popup" class="popup-dis">
+        <p id="popupText"></p>
+        <img src="img/popupBunny.png" id="popupBunny">
+    </div>
     <script src="sign.js"></script>
 </body>
 </html>
