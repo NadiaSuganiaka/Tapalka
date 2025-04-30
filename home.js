@@ -1,48 +1,28 @@
-function sendReq(endpoint, data){
+const tapButton = document.querySelector('#tap');
+const balance = document.querySelector('#balance');
+
+function sendReq(endpoint){
     fetch('http://localhost:3000/' + endpoint, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
+        body: JSON.stringify({
+            email: localStorage.getItem('email')
+        })
     }).then(response => {
         return response.json()
     }).then(data => {
-        console.log("ygutrxtrwpg")
+        if(data.balance !== undefined){
+            balance.innerHTML = data.balance;
+        }
     })
 };
 
+tapButton.addEventListener('click', () => {
+    sendReq('click');
+});
 
-function sendReq(endpoint, data){
-    fetch('http://localhost:3000/' + endpoint, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-    }).then(response => {
-        return response.json()
-    }).then(data => {
-        console.log("ygutrxtrwpg")
-    })
-};
-
-
-function sendReq(endpoint, data){
-    fetch('http://localhost:3000/' + endpoint, {
-        method: 'DELETE',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-    }).then(response => {
-        return response.json()
-    }).then(data => {
-        console.log("ygutrxtrwpg")
-    })
-};
-
-
-
-const locationsFn = async () => {
-    const response = await fetch('http://localhost:3000/');
-    const data = await response.json();
-    };
-
+setInterval(() => {
+    sendReq('passive-income');
+}, 1000);

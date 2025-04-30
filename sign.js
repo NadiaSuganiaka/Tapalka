@@ -68,6 +68,10 @@ function sendReq(endpoint, data){
         popup.classList.add("popup");
         popupText.innerHTML = data.message;
 
+        if(data.token) {
+            localStorage.setItem('token', data.token)
+            localStorage.setItem('email', formData.email)
+        }
         setTimeout(() => {
             popup.removeAttribute('class');
             popup.classList.add('popup-dis');

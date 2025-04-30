@@ -21,6 +21,10 @@ header{
     justify-content: center;  
 }
 
+#balance{
+    min-width: 80px;
+}
+
 #logo{
     margin-right: auto;
 }
@@ -119,6 +123,12 @@ main{
     align-items: center;  
     justify-content: center;
 
+}
+
+
+#tap:active{
+    transform: scale(1.2);
+    transition: .3s;
 }
 
 section{
