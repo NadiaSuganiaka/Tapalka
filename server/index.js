@@ -7,6 +7,14 @@ app.use(cors());
 app.use(express.json());
 
 const users = []
+const upgrades = [
+    {
+      id: 1,
+      name: "Click Accelerator",
+      description: "speed of earning x10",
+      price: 400
+    }
+  ];
 
 app.post('/sign-up', (req, res) => {
     const data = req.body;
@@ -43,6 +51,41 @@ app.post('/sign-in', (req, res) => {
 
     return res.status(200).json({message: "Вхід успішний ", token: generateToken()});
 
+});
+
+app.get('/upgrades', (req, res) => {
+    res.status(200).json({
+        upgrades : upgrades
+    })
+});
+
+app.get('/upgrades/:id', (req, res) => {
+    let upgradeToFind = upgrades.forEach(upgrade => upgrade.id === req.body.upgrade.id)
+    if(upgradeToFind) {
+        res.status(200).json({
+            upgrade: upgradeToFind
+        })
+    } else {
+        res.status(404).json({
+            message: "Upgrade not found"
+        })
+    }
+});
+
+app.post('/upgrades', (req, res) => {
+    let upgradeToFind = upgrades.forEach(upgrade => upgrade.id === req.body.upgrade.id)
+    if(upgradeToFind) {
+        res.status(200).json({
+            upgrade: upgradeToFind
+        })
+    } else {
+        res.status(404).json({
+            message: "Upgrade not found"
+        });
+        res.status(409).json({
+            message: "Id already exists"
+        });
+    }
 });
 
 app.listen(3000, () =>{
